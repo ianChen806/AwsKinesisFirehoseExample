@@ -22,8 +22,9 @@ public class FirehoseTarget : TargetWithLayout
     protected override void InitializeTarget()
     {
         base.InitializeTarget();
+        var credentials = new AwsCredentialService().GetCredentialsAsync();
         var region = Amazon.RegionEndpoint.GetBySystemName(Region);
-        _client = new AmazonKinesisFirehoseClient(region);
+        _client = new AmazonKinesisFirehoseClient(credentials, region);
     }
 
     protected override void Write(LogEventInfo logEvent)
@@ -34,7 +35,10 @@ public class FirehoseTarget : TargetWithLayout
         _client.PutRecordAsync(request)
             .ContinueWith(t =>
             {
-                if (t.Exception != null) InternalLogger.Error(t.Exception, "Firehose PutRecord failed");
+                if (t.Exception != null)
+                {
+                    InternalLogger.Error(t.Exception, "Firehose PutRecord failed");
+                }
             });
     }
 }
