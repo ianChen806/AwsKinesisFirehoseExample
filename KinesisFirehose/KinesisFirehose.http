@@ -1,0 +1,6 @@
+@KinesisFirehose_HostAddress = http://localhost:5255
+
+GET {{KinesisFirehose_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

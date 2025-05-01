@@ -1,0 +1,22 @@
+2025-05-01 22:18:25.0341 Info Loading assembly name: KinesisFirehose.Targets
+2025-05-01 22:18:25.0475 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: KinesisFirehose.Targets
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'KinesisFirehose.Targets, Culture=neutral, PublicKeyToken=null'. 系統找不到指定的檔案。
+File name: 'KinesisFirehose.Targets, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2025-05-01 22:18:25.1247 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=console)
+2025-05-01 22:18:25.1505 Info Registered target NLog.Targets.FileTarget(Name=allfile)
+2025-05-01 22:18:25.1505 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2025-05-01 22:18:25.1505 Info Registered target NLog.Targets.FileTarget(Name=errorFile)
+2025-05-01 22:18:25.1505 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Firehose' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2025-05-01 22:18:25.1612 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-05-01 22:18:25.2061 Info Validating config: TargetNames=allfile, errorFile, console, ConfigItems=61, FilePath=D:\Project\KinesisFirehose\KinesisFirehose\bin\Debug\net8.0\nlog.config
+2025-05-01 22:18:25.2061 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2025-05-01 22:18:25.2360 Info Configuration initialized.
+2025-05-01 22:18:25.7241 Info Validating config: TargetNames=allfile, errorFile, console, ConfigItems=61, FilePath=D:\Project\KinesisFirehose\KinesisFirehose\bin\Debug\net8.0\nlog.config
